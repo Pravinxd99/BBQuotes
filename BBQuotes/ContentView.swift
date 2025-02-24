@@ -9,15 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        TabView{
+            
+            
+            
+            FetchData(show:"Breaking Bad")
+                .toolbarBackground(.visible, for: .tabBar)
+                .tabItem {
+                    
+                    Label("Breaking Bad", systemImage: "tortoise")
+                }
+            
+            FetchData(show: Constants.bcsname)
+            
+                .toolbarBackground(.visible, for: .tabBar)
+                .tabItem {
+                    Label(Constants.bcsname ,systemImage: "briefcase")
+                }
+                    
+            FetchData(show: Constants.ecname)
+                    
+                        .toolbarBackground(.visible, for: .tabBar)
+                        .tabItem {
+                            Label(Constants.ecname ,systemImage: "car")
+                        }
+                }
+                .preferredColorScheme(.dark)
         }
-        .padding()
+        
     }
-}
 
 #Preview {
     ContentView()
